@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void setQuote(List<Contacts> contactList) {
+    public void setContactsList(List<Contacts> contactList) {
         Log.d("Abrar", String.valueOf(contactList.size()));
         removeDuplicatesTwo(contactList);
         Collections.sort(contactList, new Comparator<Contacts>() {

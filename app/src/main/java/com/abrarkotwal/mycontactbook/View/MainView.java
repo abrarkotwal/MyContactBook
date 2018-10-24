@@ -10,5 +10,5 @@ public interface MainView {
 
     void hideProgress();
 
-    void setQuote(List<Contacts> contactsList);
+    void setContactsList(List<Contacts> contactsList);
 }

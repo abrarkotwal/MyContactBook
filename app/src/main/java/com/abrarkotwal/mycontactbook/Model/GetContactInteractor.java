@@ -9,5 +9,5 @@ public interface GetContactInteractor {
     interface OnFinishedListener {
         void onFinished(List<Contacts> contactList);
     }
-    void getNextQuote(OnFinishedListener listener);
+    void getContactInfo(OnFinishedListener listener);
 }

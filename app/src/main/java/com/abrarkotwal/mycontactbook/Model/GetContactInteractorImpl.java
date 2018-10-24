@@ -39,7 +39,7 @@ public class GetContactInteractorImpl implements GetContactInteractor {
     }
 
     @Override
-    public void getNextQuote(final GetContactInteractor.OnFinishedListener listener) {
+    public void getContactInfo(final GetContactInteractor.OnFinishedListener listener) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -66,8 +66,8 @@ public class GetContactInteractorImpl implements GetContactInteractor {
         switch (requestCode) {
             case REQUEST_PERMISSION_READ_CONTACT:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    getContactDetail();
                     Toast.makeText(context, "Permission Granted!", Toast.LENGTH_SHORT).show();
+                    ((Activity)context).recreate();
                 } else {
                     Toast.makeText(context, "Permission Denied!", Toast.LENGTH_SHORT).show();
                 }

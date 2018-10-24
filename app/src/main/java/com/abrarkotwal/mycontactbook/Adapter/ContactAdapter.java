@@ -10,10 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.abrarkotwal.mycontactbook.Adapter.Pojo.Contacts;
 import com.abrarkotwal.mycontactbook.R;
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +34,13 @@ public class ContactAdapter extends Adapter<ContactAdapter.ViewItemHolder> imple
 
     public class ViewItemHolder extends ViewHolder {
         public TextView contactNumber,contactName;
+        public ImageView icon;
 
         public ViewItemHolder(View itemView) {
             super(itemView);
             this.contactNumber = (TextView) itemView.findViewById(R.id.contactNumber);
             this.contactName = (TextView) itemView.findViewById(R.id.contactName);
+            this.icon = (ImageView) itemView.findViewById(R.id.image_view);
         }
     }
 
@@ -45,8 +50,20 @@ public class ContactAdapter extends Adapter<ContactAdapter.ViewItemHolder> imple
     }
 
     public void onBindViewHolder(@NonNull ViewItemHolder holder, int position) {
-        holder.contactNumber.setText(contactList.get(position).getContactNumber());
-        holder.contactName.setText(contactList.get(position).getContactName());
+        Contacts contacts = contactList.get(position);
+        holder.contactNumber.setText(contacts.getContactNumber());
+        holder.contactName.setText(contacts.getContactName());
+
+        String firstLetter = String.valueOf(contacts.getContactName().charAt(0));
+
+        ColorGenerator generator = ColorGenerator.MATERIAL;
+        int color = generator.getColor(position);
+        TextDrawable drawable = TextDrawable
+                .builder()
+                .buildRound(firstLetter, color);
+
+        holder.icon.setImageDrawable(drawable);
+
     }
 
     public int getItemCount() {

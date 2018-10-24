@@ -32,4 +32,6 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 }

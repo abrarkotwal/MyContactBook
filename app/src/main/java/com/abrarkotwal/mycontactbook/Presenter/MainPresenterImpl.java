@@ -22,7 +22,7 @@ public class MainPresenterImpl implements MainPresenter, GetContactInteractor.On
             mainView.showProgress();
         }
 
-        getContactInteractor.getNextQuote(this);
+        getContactInteractor.getContactInfo(this);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class MainPresenterImpl implements MainPresenter, GetContactInteractor.On
     @Override
     public void onFinished(List<Contacts> contactsList) {
         if (mainView != null) {
-            mainView.setQuote(contactsList);
+            mainView.setContactsList(contactsList);
             mainView.hideProgress();
         }
     }
